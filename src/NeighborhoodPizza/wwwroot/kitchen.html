@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitchen — Neighborhood Pizza</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="kitchen">
+  <header class="site-header">
+    <h1>Kitchen orders</h1>
+    <p class="tagline">Updates every 5 seconds · <span id="last-updated">Loading…</span></p>
+  </header>
+
+  <div id="conn-banner" class="alert alert-error banner" role="alert" hidden>Connection lost — retrying</div>
+
+  <main class="board">
+    <section class="column" aria-labelledby="new-title">
+      <h2 id="new-title">New <span id="new-count" class="count">0</span></h2>
+      <p id="new-empty" class="empty">No new orders.</p>
+      <ul id="new-orders" class="order-cards"></ul>
+    </section>
+    <section class="column" aria-labelledby="ready-title">
+      <h2 id="ready-title">Ready <span id="ready-count" class="count">0</span></h2>
+      <p id="ready-empty" class="empty">No orders ready yet.</p>
+      <ul id="ready-orders" class="order-cards"></ul>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/kitchen.js"></script>
+</body>
+</html>
