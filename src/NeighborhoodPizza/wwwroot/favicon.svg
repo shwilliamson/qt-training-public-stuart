@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Pizza slice: crust, cheese, pepperoni -->
+  <path d="M32 60 L6 12 Q32 0 58 12 Z" fill="#f4c25b" stroke="#b5371f" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M6 12 Q32 0 58 12" fill="none" stroke="#c98a3d" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="24" cy="22" r="5" fill="#b5371f"/>
+  <circle cx="40" cy="24" r="5" fill="#b5371f"/>
+  <circle cx="32" cy="40" r="4.5" fill="#b5371f"/>
+</svg>

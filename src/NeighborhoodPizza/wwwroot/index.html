@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neighborhood Pizza — Order for Pickup</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Neighborhood Pizza</h1>
+    <p class="tagline">Order online, pick up at the counter.</p>
+  </header>
+
+  <main id="order-view" class="layout">
+    <div id="load-error" class="alert alert-error" role="alert" hidden></div>
+
+    <section class="panel" aria-labelledby="builder-title">
+      <h2 id="builder-title">1. Build a pizza</h2>
+      <form id="builder" novalidate>
+        <fieldset>
+          <legend>Size</legend>
+          <div id="sizes" class="choices"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Toppings</legend>
+          <div id="toppings" class="choices"></div>
+        </fieldset>
+        <p class="pizza-price">Pizza price: <strong id="pizza-price" aria-live="polite">$0.00</strong></p>
+        <button type="submit" id="add-btn" class="btn btn-primary">Add to order</button>
+        <p id="add-status" class="hint" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="cart-title">
+      <h2 id="cart-title" tabindex="-1">2. Your order</h2>
+      <p id="cart-empty" class="empty">Your order is empty.</p>
+      <ul id="cart-lines" class="cart-lines"></ul>
+      <p id="items-error" class="field-error" role="alert" hidden></p>
+      <p class="cart-total">Total: <strong id="cart-total" aria-live="polite">$0.00</strong></p>
+    </section>
+
+    <section class="panel" aria-labelledby="place-title">
+      <h2 id="place-title">3. Place order</h2>
+      <form id="place-form" novalidate>
+        <label for="customer-name">Your name</label>
+        <input id="customer-name" name="customerName" type="text" maxlength="50" autocomplete="given-name" required>
+        <p id="name-error" class="field-error" role="alert" hidden></p>
+        <p class="hint">Pay at the counter when you pick up.</p>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-wide" disabled>Place pickup order</button>
+        <p id="submit-error" class="alert alert-error" role="alert" hidden></p>
+      </form>
+    </section>
+  </main>
+
+  <main id="confirm-view" class="layout layout-single" hidden>
+    <section class="panel confirm" aria-labelledby="confirm-title">
+      <h2 id="confirm-title" tabindex="-1">Order placed!</h2>
+      <p class="order-number">Order #<span id="confirm-number"></span></p>
+      <p>Name: <strong id="confirm-name"></strong></p>
+      <ul id="confirm-lines" class="cart-lines readonly"></ul>
+      <p class="cart-total">Total: <strong id="confirm-total"></strong></p>
+      <p class="hint">Pay at the counter when you pick up.</p>
+      <button type="button" id="new-order-btn" class="btn btn-primary">Start a new order</button>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/order.js"></script>
+</body>
+</html>
