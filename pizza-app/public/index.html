@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slice Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🍕 Slice Shop</h1>
+    <button id="cart-toggle" class="cart-toggle" aria-controls="cart">Cart (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main class="layout">
+    <section id="menu-view">
+      <h2>Menu</h2>
+      <div id="specialties" class="grid"></div>
+    </section>
+
+    <section id="track-view" hidden>
+      <h2>Order <span id="track-id"></span></h2>
+      <p class="status-line">Status: <strong id="track-status"></strong></p>
+      <ol id="track-steps" class="steps"></ol>
+      <div id="track-summary" class="summary"></div>
+      <button id="new-order" class="btn">Start a new order</button>
+    </section>
+
+    <aside id="cart" class="cart">
+      <h2>Your order</h2>
+      <ul id="cart-items" class="cart-items"></ul>
+      <p id="cart-empty" class="muted">Your cart is empty.</p>
+
+      <form id="checkout" hidden novalidate>
+        <fieldset class="fulfillment">
+          <legend>How do you want it?</legend>
+          <label><input type="radio" name="fulfillment" value="pickup" checked> Pickup</label>
+          <label><input type="radio" name="fulfillment" value="delivery"> Delivery</label>
+        </fieldset>
+        <div class="totals" id="totals"></div>
+        <label>Name <input name="name" autocomplete="name" required></label>
+        <label>Phone <input name="phone" type="tel" autocomplete="tel" required></label>
+        <label id="address-field" hidden>Delivery address <textarea name="address" rows="2" autocomplete="street-address"></textarea></label>
+        <p id="checkout-error" class="error" role="alert"></p>
+        <button type="submit" class="btn btn-primary">Place order</button>
+      </form>
+    </aside>
+  </main>
+
+  <dialog id="builder">
+    <form id="builder-form" method="dialog">
+      <h2 id="builder-title"></h2>
+      <fieldset>
+        <legend>Size</legend>
+        <div id="size-options" class="options"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Crust</legend>
+        <div id="crust-options" class="options"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Toppings <span class="muted" id="topping-price"></span></legend>
+        <div id="topping-options" class="options toppings"></div>
+      </fieldset>
+      <div class="builder-footer">
+        <label class="qty">Qty <input id="qty" type="number" min="1" max="20" value="1"></label>
+        <strong id="builder-price"></strong>
+        <button type="button" id="builder-cancel" class="btn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add to order</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
