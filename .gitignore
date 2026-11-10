@@ -37,3 +37,6 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Pizza app order data
+pizza-app/data/

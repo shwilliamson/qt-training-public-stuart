@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slice Shop</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>🍕 Slice Shop</h1>
+    <form id="track-form" class="track-form">
+      <label for="track-id" class="visually-hidden">Order number</label>
+      <input id="track-id" placeholder="Order # (e.g. P-1A2B3C)" autocomplete="off">
+      <button type="submit" class="btn btn-secondary">Track</button>
+    </form>
+  </header>
+
+  <main id="order-view" class="layout">
+    <section aria-labelledby="menu-heading">
+      <h2 id="menu-heading">Menu</h2>
+      <p id="menu-error" class="error" hidden></p>
+      <div id="menu" class="menu-grid"></div>
+    </section>
+
+    <aside class="cart" aria-labelledby="cart-heading">
+      <h2 id="cart-heading">Your order</h2>
+      <p id="cart-empty" class="muted">Your cart is empty. Add a pizza to get started.</p>
+      <ul id="cart-items" class="cart-items"></ul>
+      <dl id="cart-totals" class="totals" hidden></dl>
+
+      <form id="checkout-form" class="checkout" hidden novalidate>
+        <h3>Checkout</h3>
+        <fieldset class="fulfillment">
+          <legend>How do you want it?</legend>
+          <label><input type="radio" name="fulfillment" value="pickup" checked> Pickup</label>
+          <label><input type="radio" name="fulfillment" value="delivery"> Delivery</label>
+        </fieldset>
+        <label>Name <input name="name" required maxlength="100" autocomplete="name"></label>
+        <label>Phone <input name="phone" type="tel" required maxlength="20" autocomplete="tel"></label>
+        <label id="address-field" hidden>Delivery address
+          <textarea name="address" rows="2" maxlength="200" autocomplete="street-address"></textarea>
+        </label>
+        <label><span>Notes <span class="muted">(optional)</span></span>
+          <textarea name="notes" rows="2" maxlength="300" placeholder="Gate code, extra napkins…"></textarea>
+        </label>
+        <p id="checkout-error" class="error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Place order</button>
+      </form>
+    </aside>
+  </main>
+
+  <main id="status-view" class="status-view" hidden>
+    <div class="status-card">
+      <p class="muted">Order number</p>
+      <h2 id="status-id"></h2>
+      <ol id="status-steps" class="steps"></ol>
+      <p id="status-eta" class="muted"></p>
+      <ul id="status-items" class="cart-items"></ul>
+      <dl id="status-totals" class="totals"></dl>
+      <button id="new-order" type="button" class="btn btn-primary">Start a new order</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

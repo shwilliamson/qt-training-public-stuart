@@ -1,0 +1,14 @@
+{
+  "name": "pizza-app",
+  "version": "1.0.0",
+  "description": "Pizza ordering web app (zero dependencies)",
+  "private": true,
+  "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test \"test/**/*.test.js\""
+  }
+}
